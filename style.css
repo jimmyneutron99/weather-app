@@ -1,4 +1,4 @@
-/* Basic reset */
+/* Reset styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,8 +12,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0; /* Fallback light background */
-    background-image: url('https://www.w3schools.com/w3images/clouds.jpg'); /* Default cloudy background */
+    background-color: #f0f0f0;
+    background-image: url('https://www.w3schools.com/w3images/clouds.jpg'); /* Default background */
     background-size: cover;
     background-position: center;
     transition: background-image 1s ease-in-out;
@@ -21,42 +21,42 @@ body {
 
 /* Main container */
 .container {
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent to show background */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
     text-align: center;
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
 }
 
-/* Header styling */
+/* Header */
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
     color: #333;
 }
 
-/* Input field and button container */
+/* Input and button container */
 .input-container {
     display: flex;
     justify-content: center;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-/* Input field styling */
+/* Input field */
 .input-field {
-    width: 70%;
+    flex: 1;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-right: 10px;
 }
 
-/* Button styling */
+/* Button */
 .fetch-btn {
-    padding: 10px 20px;
+    padding: 10px 15px;
     font-size: 16px;
     background-color: #007bff;
     color: white;
@@ -65,12 +65,11 @@ h1 {
     cursor: pointer;
 }
 
-/* Button hover effect */
 .fetch-btn:hover {
     background-color: #0056b3;
 }
 
-/* Output styling */
+/* Output */
 .output {
     margin-top: 20px;
     font-size: 18px;
@@ -84,18 +83,5 @@ h1 {
 
 .output p {
     margin-bottom: 5px;
-}
-
-/* Weather-specific background themes */
-.sunny {
-    background-image: url('https://www.w3schools.com/w3images/sun.jpg'); /* Sunny background */
-}
-
-.rainy {
-    background-image: url('https://www.w3schools.com/w3images/rainy.jpg'); /* Rainy background */
-}
-
-.cloudy {
-    background-image: url('https://www.w3schools.com/w3images/clouds.jpg'); /* Cloudy background */
 }
 

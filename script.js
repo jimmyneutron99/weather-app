@@ -3,7 +3,7 @@ async function fetchWeather() {
     const outputDiv = document.getElementById("output");
 
     if (!inputValue) {
-        outputDiv.innerHTML = "Please enter a location!";
+        outputDiv.innerHTML = "<p>Please enter a location!</p>";
         return;
     }
 
@@ -35,30 +35,34 @@ async function fetchWeather() {
                 <p>Wind Speed: ${weather.wind_spd} m/s</p>
             `;
 
-            // Convert weather condition to lowercase
+            // Determine background image based on weather description
             const weatherCondition = weather.weather.description.toLowerCase();
             let newBackground = "";
 
-            // Change background dynamically based on weather condition
             if (weatherCondition.includes("clear") || weatherCondition.includes("sunny")) {
-                newBackground = "https://source.unsplash.com/1600x900/?sunny";
+                newBackground = "https://www.w3schools.com/w3images/sun.jpg";
             } else if (weatherCondition.includes("rain") || weatherCondition.includes("shower")) {
-                newBackground = "https://source.unsplash.com/1600x900/?rain";
-            } else if (weatherCondition.includes("cloud")) {
-                newBackground = "https://source.unsplash.com/1600x900/?cloudy";
+                newBackground = "https://www.w3schools.com/w3images/rainy.jpg";
             } else if (weatherCondition.includes("snow")) {
-                newBackground = "https://source.unsplash.com/1600x900/?snow";
+                newBackground = "https://www.w3schools.com/w3images/snow.jpg";
+            } else if (weatherCondition.includes("storm") || weatherCondition.includes("thunder")) {
+                newBackground = "https://www.w3schools.com/w3images/storm.jpg";
             } else {
-                newBackground = "https://source.unsplash.com/1600x900/?weather";
+                newBackground = "https://www.w3schools.com/w3images/clouds.jpg";
             }
 
             // Apply background change
             document.body.style.backgroundImage = `url('${newBackground}')`;
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
             document.body.style.transition = "background-image 1s ease-in-out";
+
+            console.log("Background Updated:", newBackground);
         } else {
-            outputDiv.innerHTML = "No weather data found for this location.";
+            outputDiv.innerHTML = "<p>No weather data found for this location.</p>";
         }
     } catch (error) {
-        outputDiv.innerHTML = `Error: ${error.message}`;
+        outputDiv.innerHTML = `<p>Error: ${error.message}</p>`;
     }
 }
+

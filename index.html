@@ -10,12 +10,10 @@
     <div class="container">
         <h1>Weather Search</h1>
         <div class="input-container">
-            <input type="text" id="inputText" placeholder="Enter city name" class="input-field">
-            <button onclick="fetchWeather()" class="fetch-btn">Get Weather</button>
+            <input type="text" id="inputText" class="input-field" placeholder="Enter a city">
+            <button class="fetch-btn" onclick="fetchWeather()">Get Weather</button>
         </div>
-        <div id="output" class="output">
-            <p>Enter a location above to get the weather.</p>
-        </div>
+        <div id="output" class="output"></div>
     </div>
 
     <script src="script.js"></script>
