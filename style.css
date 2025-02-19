@@ -8,16 +8,20 @@
 /* Body styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #f0f0f0; /* Fallback light background */
+    background-image: url('https://www.w3schools.com/w3images/clouds.jpg'); /* Default cloudy background */
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
 }
 
 /* Main container */
 .container {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent to show background */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -80,5 +84,18 @@ h1 {
 
 .output p {
     margin-bottom: 5px;
+}
+
+/* Weather-specific background themes */
+.sunny {
+    background-image: url('https://www.w3schools.com/w3images/sun.jpg'); /* Sunny background */
+}
+
+.rainy {
+    background-image: url('https://www.w3schools.com/w3images/rainy.jpg'); /* Rainy background */
+}
+
+.cloudy {
+    background-image: url('https://www.w3schools.com/w3images/clouds.jpg'); /* Cloudy background */
 }
 

@@ -34,6 +34,20 @@ async function fetchWeather() {
                 <p>Weather: ${weather.weather.description}</p>
                 <p>Wind Speed: ${weather.wind_spd} m/s</p>
             `;
+
+            // Change the background based on weather conditions
+            const weatherCondition = weather.weather.description.toLowerCase();
+
+            if (weatherCondition.includes('sunny') || weatherCondition.includes('clear')) {
+                document.body.classList.add('sunny');
+                document.body.classList.remove('rainy', 'cloudy');
+            } else if (weatherCondition.includes('rain') || weatherCondition.includes('shower')) {
+                document.body.classList.add('rainy');
+                document.body.classList.remove('sunny', 'cloudy');
+            } else {
+                document.body.classList.add('cloudy');
+                document.body.classList.remove('sunny', 'rainy');
+            }
         } else {
             outputDiv.innerHTML = "No weather data found for this location.";
         }
