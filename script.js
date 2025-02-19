@@ -37,15 +37,24 @@ async function fetchWeather() {
 
             // Convert weather condition to lowercase
             const weatherCondition = weather.weather.description.toLowerCase();
+            let newBackground = "";
 
-            // Change background dynamically
-            if (weatherCondition.includes('sunny') || weatherCondition.includes('clear')) {
-                document.body.style.backgroundImage = "url('https://www.w3schools.com/w3images/sun.jpg')";
-            } else if (weatherCondition.includes('rain') || weatherCondition.includes('shower')) {
-                document.body.style.backgroundImage = "url('https://www.w3schools.com/w3images/rainy.jpg')";
+            // Change background dynamically based on weather condition
+            if (weatherCondition.includes("clear") || weatherCondition.includes("sunny")) {
+                newBackground = "https://source.unsplash.com/1600x900/?sunny";
+            } else if (weatherCondition.includes("rain") || weatherCondition.includes("shower")) {
+                newBackground = "https://source.unsplash.com/1600x900/?rain";
+            } else if (weatherCondition.includes("cloud")) {
+                newBackground = "https://source.unsplash.com/1600x900/?cloudy";
+            } else if (weatherCondition.includes("snow")) {
+                newBackground = "https://source.unsplash.com/1600x900/?snow";
             } else {
-                document.body.style.backgroundImage = "url('https://www.w3schools.com/w3images/clouds.jpg')";
+                newBackground = "https://source.unsplash.com/1600x900/?weather";
             }
+
+            // Apply background change
+            document.body.style.backgroundImage = `url('${newBackground}')`;
+            document.body.style.transition = "background-image 1s ease-in-out";
         } else {
             outputDiv.innerHTML = "No weather data found for this location.";
         }
@@ -53,4 +62,3 @@ async function fetchWeather() {
         outputDiv.innerHTML = `Error: ${error.message}`;
     }
 }
-
