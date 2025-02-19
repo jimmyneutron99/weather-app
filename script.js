@@ -1,5 +1,5 @@
 async function fetchWeather() {
-    const inputValue = document.getElementById("inputText").value; // Get user input
+    const inputValue = document.getElementById("inputText").value;
     const outputDiv = document.getElementById("output");
 
     if (!inputValue) {
@@ -7,7 +7,7 @@ async function fetchWeather() {
         return;
     }
 
-    const apiKey = "9d080ab600msh06f8f0a3e7987f8p137ae4jsnbe9a099d7071"; // Replace with your actual RapidAPI key
+    const apiKey = "9d080ab600msh06f8f0a3e7987f8p137ae4jsnbe9a099d7071";
     const apiHost = "weatherbit-v1-mashape.p.rapidapi.com";
     const url = `https://${apiHost}/current?city=${encodeURIComponent(inputValue)}&units=imperial&lang=en`;
 
@@ -35,18 +35,16 @@ async function fetchWeather() {
                 <p>Wind Speed: ${weather.wind_spd} m/s</p>
             `;
 
-            // Change the background based on weather conditions
+            // Convert weather condition to lowercase
             const weatherCondition = weather.weather.description.toLowerCase();
 
+            // Change background dynamically
             if (weatherCondition.includes('sunny') || weatherCondition.includes('clear')) {
-                document.body.classList.add('sunny');
-                document.body.classList.remove('rainy', 'cloudy');
+                document.body.style.backgroundImage = "url('https://www.w3schools.com/w3images/sun.jpg')";
             } else if (weatherCondition.includes('rain') || weatherCondition.includes('shower')) {
-                document.body.classList.add('rainy');
-                document.body.classList.remove('sunny', 'cloudy');
+                document.body.style.backgroundImage = "url('https://www.w3schools.com/w3images/rainy.jpg')";
             } else {
-                document.body.classList.add('cloudy');
-                document.body.classList.remove('sunny', 'rainy');
+                document.body.style.backgroundImage = "url('https://www.w3schools.com/w3images/clouds.jpg')";
             }
         } else {
             outputDiv.innerHTML = "No weather data found for this location.";
