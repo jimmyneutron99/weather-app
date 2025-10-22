@@ -7,7 +7,7 @@ async function fetchWeather() {
         return;
     }
 
-    const apiKey = "9d080ab600msh06f8f0a3e7987f8p137ae4jsnbe9a099d7071";
+    const apiKey = " ";
     const apiHost = "weatherbit-v1-mashape.p.rapidapi.com";
     const url = `https://${apiHost}/current?city=${encodeURIComponent(inputValue)}&units=imperial&lang=en`;
 
